@@ -30,14 +30,12 @@ def check_user_id(user_id: int, bot: Bot) -> Optional[str]:
 #I added extra new lines 
 disasters = """ Saitama has bot access levels we call as *"Disaster Levels"*
 \n*Heroes Association* - Devs who can access the bots server and can execute, edit, modify bot code. Can also manage other Disasters
-\n*God* - Only one exists, bot owner. 
+\n*LEGEND* - Only one exists, bot owner. 
 Owner has complete bot access, including bot adminship in chats Saitama is at.
 \n*Dragons* - Have super user access, can gban, manage disasters lower than them and are admins in Saitama.
-\n*Demons* - Have access go globally ban users across Saitama.
+\n*HACKER* - Have access go globally ban users across Saitama.
 \n*Tigers* - Same as wolves but can unban themselves if banned.
 \n*Wolves* - Cannot be banned, muted flood kicked but can be manually banned by admins.
-\n*Disclaimer*: The disaster levels in Saitama are there for troubleshooting, support, banning potential scammers.
-Report abuse or ask us more on these at [Heroes Association](https://t.me/OnePunchSupport).
 """
 # do not async, not a handler 
 def send_disasters(update):
@@ -482,7 +480,7 @@ def removetiger(bot: Bot, update: Update, args: List[str]) -> str:
 @run_async
 @whitelist_plus
 def whitelistlist(bot: Bot, update: Update):
-    reply = "<b>Known Wolf Disasters 🐺:</b>\n"
+    reply = "<b>Known Wolf Disasters 🔥:</b>\n"
     for each_user in WHITELIST_USERS:
         user_id = int(each_user)
         try:
@@ -497,7 +495,7 @@ def whitelistlist(bot: Bot, update: Update):
 @run_async
 @whitelist_plus
 def tigerlist(bot: Bot, update: Update):
-    reply = "<b>Known Tiger Disasters 🐯:</b>\n"
+    reply = "<b>Known Tiger Disasters 🔥:</b>\n"
     for each_user in TIGER_USERS:
         user_id = int(each_user)
         try:
@@ -511,7 +509,7 @@ def tigerlist(bot: Bot, update: Update):
 @run_async
 @whitelist_plus
 def supportlist(bot: Bot, update: Update):
-    reply = "<b>Known Demon Disasters 👹:</b>\n"
+    reply = "<b>Known HACKER Disasters 🔥:</b>\n"
     for each_user in SUPPORT_USERS:
         user_id = int(each_user)
         try:
@@ -526,7 +524,7 @@ def supportlist(bot: Bot, update: Update):
 @whitelist_plus
 def sudolist(bot: Bot, update: Update):
     true_sudo = list(set(SUDO_USERS) - set(DEV_USERS))
-    reply = "<b>Known Dragon Disasters 🐉:</b>\n"
+    reply = "<b>Known Dragon Disasters 🔥:</b>\n"
     for each_user in true_sudo:
         user_id = int(each_user)
         try:
@@ -541,7 +539,7 @@ def sudolist(bot: Bot, update: Update):
 @whitelist_plus
 def devlist(bot: Bot, update: Update):
     true_dev = list(set(DEV_USERS) - {OWNER_ID})
-    reply = "<b>Hero Association Members ⚡️:</b>\n"
+    reply = "<b>Hero Association Members 🔥:</b>\n"
     for each_user in true_dev:
         user_id = int(each_user)
         try:
