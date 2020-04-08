@@ -267,33 +267,32 @@ def invite(bot: Bot, update: Update):
 
 @run_async
 @connection_status
+
 def adminlist(bot: Bot, update: Update):
-    chat = update.effective_chat
-    user = update.effective_user
-
-    chat_id = chat.id
-    update_chat_title = chat.title
-    message_chat_title = update.effective_message.chat.title
-
-    administrators = bot.getChatAdministrators(chat_id)
-
-    if update_chat_title == message_chat_title:
-        chat_name = "this chat"
-    else:
-        chat_name = update_chat_title
-
-    text = f"Admins in *{chat_name}*:"
-
+    administrators = update.effective_chat.get_administrators()
+    text = "Admins in *{}*:".format(update.effective_chat.title or "this chat")
     for admin in administrators:
         user = admin.user
-        name = f"[{user.first_name + (user.last_name or '')}](tg://user?id={user.id})"
-        text += f"\n - {name}"
-
+        status = admin.status
+        name = "[{}](tg://user?id={})".format(user.first_name + " " + (user.last_name or ""), user.id)
+        if user.username:
+            name = "[{}](tg://user?id={})".format(user.first_name + (user.last_name or ""), user.id)
+        if status == "creator":
+            text += "\n 🔱 Creator:"
+            text += "\n` • `{} \n\n 🔰 Admin:".format(name)
+    for admin in administrators:
+        user = admin.user
+        status = admin.status
+        name = "[{}](tg://user?id={})".format(user.first_name + " " + (user.last_name or ""), user.id)
+        if user.username:
+            name = "[{}](tg://user?id={})".format(user.first_name + (user.last_name or ""), user.id)
+        if status == "administrator":
+            text += "\n` • `{}".format(name)
     update.effective_message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
 
-
 def __chat_settings__(chat_id, user_id):
-    return "You are *admin*: `{}`".format(dispatcher.bot.get_chat_member(chat_id, user_id).status in ("administrator", "creator"))
+    return "You are *admin*: `{}`".format(
+        dispatcher.bot.get_chat_member(chat_id, user_id).status in ("administrator", "creator"))
 
 
 __help__ = """
