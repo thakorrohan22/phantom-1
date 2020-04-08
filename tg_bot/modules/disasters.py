@@ -556,8 +556,6 @@ __help__ = """
  - /hacker - Lists all hacker disasters.
  - /tigers - Lists all Tigers disasters.
  - /wolves - Lists all Wolf disasters.
- Note: These commands list users with special bot priveleges and can only be used by them.
- You can visit @OnePunchSupport to query more about these.
 """
 
 SUDO_HANDLER = CommandHandler(("addsudo", "adddragon"), addsudo, pass_args=True)
