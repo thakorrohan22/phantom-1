@@ -35,12 +35,11 @@ SFW_STRINGS = (
       "അവളെ ഓർത്ത് കുടിച്ച കല്ലും നനഞ്ഞ മഴയും വേസ്റ്റ്....💔",
       "എന്നോട് പറ ഐ ലവ് യൂ ന്ന്....😘",
       "അല്ല ഇതാര് വാര്യംപിള്ളിയിലെ മീനാക്ഷി അല്ലയോ... എന്താ മോളെ സ്കൂട്ടറില്....🙈 "
-  
   )
 
 @run_async
 def kill(bot: Bot, update: Update):
-    bot.sendChatAction(update.effective_chat.id, "killing") # Bot typing before send messages
+    bot.sendChatAction(update.effective_chat.id, "typing") # Bot typing before send messages
     message = update.effective_message
     if message.reply_to_message:
       message.reply_to_message.reply_text(random.choice(SFW_STRINGS))
