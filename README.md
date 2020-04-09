@@ -1,3 +1,3 @@
 
 
-[![Deploy](https://heroku.com/deploy)
+[Deploy](https://heroku.com/deploy)
