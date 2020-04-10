@@ -74,6 +74,7 @@ if ENV:
     ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
     CASH_API_KEY = os.environ.get('CASH_API_KEY', None)
     TIME_API_KEY = os.environ.get('TIME_API_KEY', None)
+    API_WEATHER  = os.environ.get('API_WEATHER',None)
     AI_API_KEY = os.environ.get('AI_API_KEY', None)
     WALL_API = os.environ.get('WALL_API', None)
     STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', False))
@@ -134,6 +135,7 @@ else:
     ALLOW_EXCL = Config.ALLOW_EXCL
     CASH_API_KEY = Config.CASH_API_KEY
     TIME_API_KEY = Config.TIME_API_KEY
+    API_WEATHER  = Config.API_WEATHER
     AI_API_KEY = Config.AI_API_KEY
     WALL_API = Config.WALL_API
     STRICT_GMUTE = Config.STRICT_GMUTE
