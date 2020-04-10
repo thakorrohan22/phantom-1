@@ -141,6 +141,7 @@ __help__ = """
 - /Gban : Global ban a user
 - /Ungban : Ungban a user
 - /slist Gives a list of sudo and support users
+- /zal type some text 😎
 """
 
 __mod_name__ = "Special"
