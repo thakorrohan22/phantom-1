@@ -61,6 +61,10 @@
          "description": "Required for timezone information",
          "value": "HW6LQCYX43HS"
       },
+      "API_OPENWEATHER": {
+         "description": "Required for timezone information",
+         "value": "5c5adc2bc1832de6943e3f4467e84c39"
+      },
       "PORT": {
          "description": "Port to use for your webhooks.",
          "required": false,
