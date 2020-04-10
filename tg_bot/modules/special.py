@@ -140,8 +140,6 @@ __help__ = """
 - /gbanlist: get gbanned users list
 - /Gban : Global ban a user
 - /Ungban : Ungban a user
-- /addsudo: promotes the user to SUDO USER
-- /rsudo: demotes the user from SUDO USER
 - /slist Gives a list of sudo and support users
 - /zal type some text 
 """
