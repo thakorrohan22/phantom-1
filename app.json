@@ -61,8 +61,12 @@
          "description": "Required for timezone information",
          "value": "HW6LQCYX43HS"
       },
+      "AI_API_KEY": {
+         "description": "for activate chatbot",
+         "value": "x_y_z"
+      },
       "API_OPENWEATHER": {
-         "description": "Required for timezone information",
+         "description": "Required for weather information",
          "value": "5c5adc2bc1832de6943e3f4467e84c39"
       },
       "PORT": {
