@@ -22,4 +22,3 @@ coffeehouse
 tswift
 gTTS
 wikipedia
-pyowm
