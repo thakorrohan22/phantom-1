@@ -162,5 +162,5 @@ through the `/stats` command, which is only available to the bot owner.
 
 
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/leobrownlee/legendoftelegram.git)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/leobrownlee/phantom.git)
 
