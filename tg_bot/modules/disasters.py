@@ -31,7 +31,7 @@ def check_user_id(user_id: int, bot: Bot) -> Optional[str]:
 disasters = """ *"Disaster Levels"*
 \n*Heroes Association* - Devs who can access the bots server and can execute, edit, modify bot code. Can also manage other Disasters
 \n*LEGEND* - Only one exists, bot owner. 
-\n*Dragons* - Have super user access, can gban, manage disasters lower than them and are admins in Saitama.
+\n*Dragons* - Have super user access, can gban, manage disasters lower than them and are admins in phantom.
 \n*HACKER* - Have access go globally ban users across this bot 
 \n*Tigers* - Same as wolves but can unban themselves if banned.
 \n*Wolves* - Cannot be banned, muted flood kicked but can be manually banned by admins.
@@ -552,7 +552,6 @@ def devlist(bot: Bot, update: Update):
 __help__ = """
  - /heroes - Lists all Hero Association members.
  - /dragons - Lists all Dragon disasters.
- - /hacker - Lists all hacker disasters.
  - /tigers - Lists all Tigers disasters.
  - /wolves - Lists all Wolf disasters.
 """
