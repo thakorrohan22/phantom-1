@@ -305,6 +305,10 @@ __help__ = """
  - /promote: promotes the user replied to
  - /demote: demotes the user replied to
  - /settitle: sets a custom title for an admin that the bot promoted
+ - /sudolist list of sudo users
+ - /whitelistlist list of whitelist users
+ - /supportlist list of Support users
+ - /devlist list of dev users 
 """
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "admins"], adminlist)
