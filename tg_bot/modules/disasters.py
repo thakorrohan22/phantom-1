@@ -61,11 +61,11 @@ def addsudo(bot: Bot, update: Update, args: List[str]) -> str:
         data = json.load(infile)
 
     if user_id in SUDO_USERS:
-        message.reply_text("This member is already a Dragon Disaster")
+        message.reply_text("This member is already a Sudo user")
         return ""
 
     if user_id in SUPPORT_USERS:
-        rt += "Requested HA to promote a Demon Disaster to Dragon."
+        rt += "Requested HA to promote a Hacker Disaster to Dragon."
         data['supports'].remove(user_id)
         SUPPORT_USERS.remove(user_id)
 
@@ -119,11 +119,11 @@ def addsupport(bot: Bot, update: Update, args: List[str]) -> str:
         SUDO_USERS.remove(user_id)
 
     if user_id in SUPPORT_USERS:
-        message.reply_text("This user is already a Demon Disaster.")
+        message.reply_text("This user is already a Support User.")
         return ""
 
     if user_id in WHITELIST_USERS:
-        rt += "Requested HA to promote this Wolf Disaster to Demon"
+        rt += "Requested HA to promote this Wolf Disaster to hacker"
         data['whitelists'].remove(user_id)
         WHITELIST_USERS.remove(user_id)
 
@@ -133,7 +133,7 @@ def addsupport(bot: Bot, update: Update, args: List[str]) -> str:
     with open(ELEVATED_USERS_FILE, 'w') as outfile:
         json.dump(data, outfile, indent=4)
 
-    update.effective_message.reply_text(rt + f"\n{user_member.first_name} was added as a Demon Disaster!")
+    update.effective_message.reply_text(rt + f"\n{user_member.first_name} was added as a Hacker Disaster!")
 
     log_message = (f"#SUPPORT\n"
                    f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
@@ -171,7 +171,7 @@ def addwhitelist(bot: Bot, update: Update, args: List[str]) -> str:
         SUDO_USERS.remove(user_id)
 
     if user_id in SUPPORT_USERS:
-        rt += "This user is already a Demon Disaster, Demoting to Wolf."
+        rt += "This user is already a Hacker Disaster, Demoting to Wolf."
         data['supports'].remove(user_id)
         SUPPORT_USERS.remove(user_id)
 
@@ -224,7 +224,7 @@ def addtiger(bot: Bot, update: Update, args: List[str]) -> str:
         SUDO_USERS.remove(user_id)
 
     if user_id in SUPPORT_USERS:
-        rt += "This user is already a Demon Disaster, Demoting to Tiger."
+        rt += "This user is already a hacker Disaster, Demoting to Tiger."
         data['supports'].remove(user_id)
         SUPPORT_USERS.remove(user_id)
 
@@ -282,7 +282,7 @@ def addtiger(bot: Bot, update: Update, args: List[str]) -> str:
         SUDO_USERS.remove(user_id)
 
     if user_id in SUPPORT_USERS:
-        rt += "This user is already a Demon Disaster, Demoting to Tiger."
+        rt += "This user is already a Hacker Disaster, Demoting to Tiger."
         data['supports'].remove(user_id)
         SUPPORT_USERS.remove(user_id)
 
