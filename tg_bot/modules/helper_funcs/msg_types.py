@@ -77,6 +77,11 @@ def get_note_type(msg: Message):
             text, buttons = button_markdown_parser(msgtext, entities=entities)
             data_type = Types.VIDEO
 
+        elif msg.reply_to_message.video_note:
+            content = msg.reply_to_message.video_note.file_id
+            text, buttons = button_markdown_parser(msgtext, entities=entities)
+            data_type = Types.VIDEO_NOTE
+
     return note_name, text, data_type, content, buttons
 
 
@@ -90,7 +95,8 @@ def get_welcome_type(msg: Message):
 
     buttons = []
     # determine what the contents of the filter are - text, image, sticker, etc
-    if len(args) >= 2:
+    # some media, cannot have captions in the Telegram BOT API
+    if len(args) >= 2 and not msg.reply_to_message:
         offset = len(args[1]) - len(msg.text)  # set correct offset relative to command + notename
         text, buttons = button_markdown_parser(args[1], entities=msg.parse_entities(), offset=offset)
         if buttons:
@@ -100,32 +106,40 @@ def get_welcome_type(msg: Message):
 
     elif msg.reply_to_message and msg.reply_to_message.sticker:
         content = msg.reply_to_message.sticker.file_id
-        text = msg.reply_to_message.caption
+        text, buttons = button_markdown_parser(msg.reply_to_message.caption, entities=msg.reply_to_message.parse_entities(), offset=0)
         data_type = Types.STICKER
 
     elif msg.reply_to_message and msg.reply_to_message.document:
         content = msg.reply_to_message.document.file_id
-        text = msg.reply_to_message.caption
+        text, buttons = button_markdown_parser(msg.reply_to_message.caption, entities=msg.reply_to_message.parse_entities(), offset=0)
         data_type = Types.DOCUMENT
 
     elif msg.reply_to_message and msg.reply_to_message.photo:
         content = msg.reply_to_message.photo[-1].file_id  # last elem = best quality
-        text = msg.reply_to_message.caption
+        text, buttons = button_markdown_parser(msg.reply_to_message.caption, entities=msg.reply_to_message.parse_entities(), offset=0)
         data_type = Types.PHOTO
 
     elif msg.reply_to_message and msg.reply_to_message.audio:
         content = msg.reply_to_message.audio.file_id
-        text = msg.reply_to_message.caption
+        text, buttons = button_markdown_parser(msg.reply_to_message.caption, entities=msg.reply_to_message.parse_entities(), offset=0)
         data_type = Types.AUDIO
 
     elif msg.reply_to_message and msg.reply_to_message.voice:
         content = msg.reply_to_message.voice.file_id
-        text = msg.reply_to_message.caption
+        text, buttons = button_markdown_parser(msg.reply_to_message.caption, entities=msg.reply_to_message.parse_entities(), offset=0)
         data_type = Types.VOICE
 
     elif msg.reply_to_message and msg.reply_to_message.video:
         content = msg.reply_to_message.video.file_id
-        text = msg.reply_to_message.caption
+        text, buttons = button_markdown_parser(msg.reply_to_message.caption, entities=msg.reply_to_message.parse_entities(), offset=0)
         data_type = Types.VIDEO
+
+    elif msg.reply_to_message.video_note:
+        msgtext = ""
+        if len(args) > 1:
+            msgtext = args[1]
+        content = msg.reply_to_message.video_note.file_id
+        text, buttons = button_markdown_parser(msgtext, entities=msg.reply_to_message.parse_caption_entities(), offset=0)
+        data_type = Types.VIDEO_NOTE
 
     return text, data_type, content, buttons
