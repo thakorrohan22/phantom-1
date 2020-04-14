@@ -290,8 +290,7 @@ def adminlist(bot: Bot, update: Update):
             text += "\n` 👮‍♂️ `{}".format(name)
             members = "\n\n*Members:*\n`🧒 ` {} users".format(count)
             
-    msg.reply_text(text + members, parse_mode=ParseMode.MARKDOWN)
-  
+    update.effective_message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
 
 def __chat_settings__(chat_id, user_id):
     return "You are *admin*: `{}`".format(
