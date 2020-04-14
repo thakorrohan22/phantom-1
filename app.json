@@ -25,7 +25,7 @@
       "DONATION_LINK": {
          "description": "Optional: link where you would like to receive donations.",
          "required": false,
-         "value": "https://t.me/AnonymousD3061"
+         "value": "https://t.me/THEWIZARD666"
       },
       "ENV": {
          "description": "Setting this to ANYTHING will enable environment variables.",
@@ -38,16 +38,16 @@
       },      
       "OWNER_ID": {
          "description": "Your user ID as an integer.",
-         "value": "988452336"
+         "value": "903461554"
       },
       "OWNER_USERNAME": {
          "description": "Your username",
-         "value": "AnonymousD3061"
+         "value": "THEWIZARD666"
       },
       "DEV_USERS": {
          "description": "ID of users who are Dev (can use /py etc.)",
          "required": false,
-         "value": "988452336"
+         "value": "903461554"
       },
       "GBAN_LOGS": {
          "description": "Gban log channel, include the hyphen too: ex: -123456",
@@ -81,17 +81,17 @@
       "SUDO_USERS": {
          "description": "A space separated list of user IDs who you want to assign as sudo users.",
          "required": false,
-         "value": "988452336"
+         "value": "903461554"
       },
       "SUPPORT_USERS": {
          "description": "A space separated list of user IDs who you wanna assign as support users(gban perms only).",
          "required": false,
-         "value": "988452336"
+         "value": "903461554"
       },
       "TIGER_USERS": {
          "description": "A space separated list of user IDs who you wanna assign as tiger users.",
          "required": false,
-         "value": "988452336"
+         "value": "903461554"
       },
       "TOKEN": {
          "description": "Your bot token.",
@@ -111,7 +111,7 @@
       "WHITELIST_USERS": {
          "description": "A space separated list of user IDs who you want to assign as whitelisted - can't be banned with your bot.",
          "required": false,
-         "value": "988452336"
+         "value": "903461554"
       }
    },
    "keywords": [
@@ -123,5 +123,5 @@
    ],
    "logo": "https://telegra.ph/file/b46b350049df3a5a11d12.jpg",
    "name": "phantom",
-   "repository": "https://github.com/leobrownlee/phantom"
+   "repository": "https://github.com/amalmadev/phantom"
 }
