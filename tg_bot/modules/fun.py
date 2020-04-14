@@ -20,49 +20,40 @@ def runs(bot: Bot, update: Update):
 
 @run_async
 def slap(bot: Bot, update: Update, args: List[str]):
-    message = update.effective_message
-    chat = update.effective_chat
+    msg = update.effective_message  # type: Optional[Message]
 
-    reply_text = message.reply_to_message.reply_text if message.reply_to_message else message.reply_text
+    # reply to correct message
+    reply_text = msg.reply_to_message.reply_text if msg.reply_to_message else msg.reply_text
 
-    curr_user = html.escape(message.from_user.first_name)
-    user_id = extract_user(message, args)
+    # get user who sent message
+    if msg.from_user.username:
+        curr_user = "@" + escape_markdown(msg.from_user.username)
+    else:
+        curr_user = "[{}](tg://user?id={})".format(msg.from_user.first_name, msg.from_user.id)
 
-    if user_id == bot.id:
-        temp = random.choice(fun_strings.SLAP_SAITAMA_TEMPLATES)
-
-        if isinstance(temp, list):
-            if temp[2] == "tmute":
-                if is_user_admin(chat, message.from_user.id):
-                    reply_text(temp[1])
-                    return
-
-                mutetime = int(time.time() + 60)
-                bot.restrict_chat_member(chat.id, message.from_user.id, until_date=mutetime, can_send_messages=False)
-            reply_text(temp[0])
-        else:
-            reply_text(temp)
-        return
-
+    user_id = extract_user(update.effective_message, args)
     if user_id:
-
         slapped_user = bot.get_chat(user_id)
         user1 = curr_user
-        user2 = html.escape(slapped_user.first_name)
+        if slapped_user.username:
+            user2 = "@" + escape_markdown(slapped_user.username)
+        else:
+            user2 = "[{}](tg://user?id={})".format(slapped_user.first_name,
+                                                   slapped_user.id)
 
+    # if no target found, bot targets the sender
     else:
-        user1 = bot.first_name
+        user1 = "[{}](tg://user?id={})".format(bot.first_name, bot.id)
         user2 = curr_user
 
-    temp = random.choice(fun_strings.SLAP_TEMPLATES)
-    item = random.choice(fun_strings.ITEMS)
-    hit = random.choice(fun_strings.HIT)
-    throw = random.choice(fun_strings.THROW)
+    temp = random.choice(SLAP_TEMPLATES)
+    item = random.choice(ITEMS)
+    hit = random.choice(HIT)
+    throw = random.choice(THROW)
 
-    reply = temp.format(user1=user1, user2=user2, item=item, hits=hit, throws=throw)
+    repl = temp.format(user1=user1, user2=user2, item=item, hits=hit, throws=throw)
 
-    reply_text(reply, parse_mode=ParseMode.HTML)
-
+    reply_text(repl, parse_mode=ParseMode.MARKDOWN)
 
 @run_async
 def roll(bot: Bot, update: Update):
