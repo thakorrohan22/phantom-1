@@ -288,7 +288,6 @@ def adminlist(bot: Bot, update: Update):
             name = "[{}](tg://user?id={})".format(user.first_name + (user.last_name or ""), user.id)
         if status == "administrator":
             text += "\n` 👮‍♂️ `{}".format(name)
-            members = "\n\n*Members:*\n`🧒 ` {} users".format(count)
             
     update.effective_message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
 
