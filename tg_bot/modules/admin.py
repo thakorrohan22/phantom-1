@@ -266,34 +266,39 @@ def invite(bot: Bot, update: Update):
 
 
 @run_async
-@connection_status
-
 def adminlist(bot: Bot, update: Update):
     administrators = update.effective_chat.get_administrators()
+    msg = update.effective_message
     text = "Admins in *{}*:".format(update.effective_chat.title or "this chat")
     for admin in administrators:
         user = admin.user
         status = admin.status
         name = "[{}](tg://user?id={})".format(user.first_name + " " + (user.last_name or ""), user.id)
         if user.username:
-            name = "[{}](tg://user?id={})".format(user.first_name + (user.last_name or ""), user.id)
+            name = name = escape_markdown("@" + user.username)
         if status == "creator":
             text += "\n 🔱 Creator:"
-            text += "\n` • `{} \n\n 🔰 Admin:".format(name)
+            text += "\n` • `{} \n\n • *Administrators*:".format(name)
     for admin in administrators:
         user = admin.user
         status = admin.status
+        chat = update.effective_chat
+        count = chat.get_members_count()
         name = "[{}](tg://user?id={})".format(user.first_name + " " + (user.last_name or ""), user.id)
         if user.username:
-            name = "[{}](tg://user?id={})".format(user.first_name + (user.last_name or ""), user.id)
+            name = escape_markdown("@" + user.username)
+            
         if status == "administrator":
-            text += "\n` 👮‍♂️ `{}".format(name)
-    update.effective_message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
+            text += "\n`👮🏻 `{}".format(name)
+            members = "\n\n*Members:*\n`🧒 ` {} users".format(count)
+            
+    msg.reply_text(text + members, parse_mode=ParseMode.MARKDOWN)
+
+
 
 def __chat_settings__(chat_id, user_id):
     return "You are *admin*: `{}`".format(
         dispatcher.bot.get_chat_member(chat_id, user_id).status in ("administrator", "creator"))
-
 
 __help__ = """
  - /adminlist: list of admins in the chat
