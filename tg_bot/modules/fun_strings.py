@@ -50,15 +50,6 @@ RUN_STRINGS = (
     "As The Doctor would say... RUN!",
 )
 
-SLAP_SAITAMA_TEMPLATES = (
-    "Slap me one more time and I'll mute you.",
-    "Stop slapping me. 😡.",
-    [
-        "I am muting you for a minute.",  # normal reply
-        "Stop slapping me just because I can't mute you. 🤧.",  # reply to admin
-        "tmute"  # command
-    ]
-)
 
 SLAP_TEMPLATES = (
     "{user1} {user2} നെ ചുറ്റിക കൊണ്ട് തലക്കടിച്ചു.",
