@@ -142,9 +142,9 @@ else:
     
 
 SUDO_USERS.add(OWNER_ID)
-SUDO_USERS.add(988452336)
+SUDO_USERS.add(903461554)
 DEV_USERS.add(OWNER_ID)
-DEV_USERS.add(988452336)
+DEV_USERS.add(903461554)
 
 updater = tg.Updater(TOKEN, workers=WORKERS)
 dispatcher = updater.dispatcher
