@@ -1,127 +1,87 @@
+
 {
-   "addons": [
-      {
-         "options": {
-            "version": "9.5"
-         },
-         "plan": "heroku-postgresql"
+  "name": "phantom",
+  "description": "Telegram's sassiest group manager. Modular Telegram group management bot!",
+  "keywords": [
+    "telegram",
+    "best",
+    "group",
+    "manager",
+    "3"
+  ],
+  "repository": "hhttps://github.com/amalmadev/phantom",
+  "env": {
+    "ENV": {
+      "description": "Setting this to ANYTHING will enable env variables",
+      "value": "ANYTHING"
+    },
+    "TOKEN": {
+      "description": "Your bot token, as a string.",
+      "value": ""
+    },
+    "OWNER_ID": {
+      "description": "An integer of consisting of your owner ID",
+      "value": "683538773"
+    },
+    "OWNER_USERNAME": {
+      "description": "Your username",
+      "value": "ViruZs"
+    },
+    "WEBHOOK": {
+      "description": "Setting this to ANYTHING will enable webhooks when in env mode messages",
+      "value": "ANYTHING"
+    },
+    "URL": {
+      "description": "The Heroku App URL similar to https://<appname>.herokuapp.com/",
+      "value": ""
+    },
+    "MESSAGE_DUMP": {
+      "description": "optional: a chat where your replied saved messages are stored, to stop people deleting their old",
+      "value": "-1007777777777"
+    },
+    "SUDO_USERS": {
+      "description": "A space separated list of user_ids which should be considered sudo users",
+      "value": "254318997 683538773 570400686 466337795"
+    },
+    "SUPPORT_USERS": {
+      "description": "A space separated list of user_ids which should be considered support users (can gban/ungban, nothing else)",
+      "value": "254318997 683538773 570400686 466337795"
+    },
+    "WHITELIST_USERS": {
+      "description": "A space separated list of user_ids which should be considered whitelisted - they can't be banned.",
+      "value": "254318997 683538773 570400686 466337795"
+    },
+    "DONATION_LINK": {
+      "description": "Optional: link where you would like to receive donations.",
+      "value": "https://www.paypal.me/THEWIZARD666"
+    },
+    "PORT": {
+      "description": "Port to use for your webhooks",
+      "value": "8443"
+    },
+    "DEL_CMDS": {
+      "description": "Whether to delete commands from users which don't have rights to use that command",
+      "value": "True"
+    },
+    "STRICT_GBAN": {
+      "description": "Enforce gbans across new groups as well as old groups. When a gbanned user talks, he will be banned.",
+      "value": "True"
+    },
+    "ALLOW_EXCL": {
+      "description": "Whether to allow using exclamation marks ! for commands as well as /.",
+      "value": "True"
+    },
+    "BAN_STICKER": {
+      "description": "Which sticker to use when banning people. Use https://telegram.dog/ShowJsonBot to get the file_id",
+      "value": "CAADBAAD6AMAAkJ_EQNu_RjOszbmnxYE"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.5"
       }
-   ],
-   "description": "An Anime themed Telegram group management bot.",
-   "env": {
-      "ALLOW_EXCL": {
-         "description": "Set this to True if you want ! to be a command prefix along with /",
-         "value": "True"
-      },
-      "BAN_STICKER": {
-         "description": "ID of the sticker you want to use when banning people.",
-         "required": false,
-         "value": ""
-      },
-      "DEL_CMDS": {
-         "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
-         "value": "True"
-      },
-      "DONATION_LINK": {
-         "description": "Optional: link where you would like to receive donations.",
-         "required": false,
-         "value": "https://t.me/THEWIZARD666"
-      },
-      "ENV": {
-         "description": "Setting this to ANYTHING will enable environment variables.",
-         "value": "ANYTHING"
-      },
-      "SQLALCHEMY_DATABASE_URI": {
-         "description": "Your postgres sql db, empty this field if you dont have one.",
-         "required": false,
-         "value": "sqldbtype://username:pw@hostname:port/db_name"
-      },      
-      "OWNER_ID": {
-         "description": "Your user ID as an integer.",
-         "value": "903461554"
-      },
-      "OWNER_USERNAME": {
-         "description": "Your username",
-         "value": "THEWIZARD666"
-      },
-      "DEV_USERS": {
-         "description": "ID of users who are Dev (can use /py etc.)",
-         "required": false,
-         "value": "903461554"
-      },
-      "GBAN_LOGS": {
-         "description": "Gban log channel, include the hyphen too: ex: -123456",
-         "value": "-123"
-      },
-      "CASH_API_KEY": {
-         "description": "Required for currency converter",
-         "value": "-xyz"
-      },
-      "TIME_API_KEY": {
-         "description": "Required for timezone information",
-         "value": "HW6LQCYX43HS"
-      },
-      "AI_API_KEY": {
-         "description": "for activate chatbot",
-         "value": "x_y_z"
-      },
-      "API_OPENWEATHER": {
-         "description": "Required for weather information",
-         "value": "5c5adc2bc1832de6943e3f4467e84c39"
-      },
-      "PORT": {
-         "description": "Port to use for your webhooks.",
-         "required": false,
-         "value": ""
-      },
-      "STRICT_GBAN": {
-         "description": "Enforce gbans across new groups as well as old groups. When a gbanned user talks, he will be banned.",
-         "value": "True"
-      },
-      "SUDO_USERS": {
-         "description": "A space separated list of user IDs who you want to assign as sudo users.",
-         "required": false,
-         "value": "903461554"
-      },
-      "SUPPORT_USERS": {
-         "description": "A space separated list of user IDs who you wanna assign as support users(gban perms only).",
-         "required": false,
-         "value": "903461554"
-      },
-      "TIGER_USERS": {
-         "description": "A space separated list of user IDs who you wanna assign as tiger users.",
-         "required": false,
-         "value": "903461554"
-      },
-      "TOKEN": {
-         "description": "Your bot token.",
-         "required": true,
-         "value": ""
-      },
-      "URL": {
-         "description": "The Heroku App URL :-  https://<appname>.herokuapp.com/",
-         "required": false,
-         "value": ""
-      },
-      "WEBHOOK": {
-         "description": "Setting this to ANYTHING will enable webhooks.",
-         "required": false,
-         "value": ""
-      },
-      "WHITELIST_USERS": {
-         "description": "A space separated list of user IDs who you want to assign as whitelisted - can't be banned with your bot.",
-         "required": false,
-         "value": "903461554"
-      }
-   },
-   "keywords": [
-      "telegram",
-      "weeb",
-      "group",
-      "manager",
-      "Saitama"
-   ],
-   "logo": "https://telegra.ph/file/b46b350049df3a5a11d12.jpg",
-   "name": "phantom",
-   "repository": "https://github.com/amalmadev/phantom"
+    }
+  ]
 }
