@@ -17,27 +17,35 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Hey {}, my name is {}! if you have any questions about how to use me use thid command 👉 /help
+("[┏┓━┏┓━━━━┏┓━┏┓━━━━━ \n┃┃━┃┃━━━━┃┃━┃┃━━━━━ \n┃┗━┛┃┏━━┓┃┃━┃┃━┏━━┓ \n┃┏━┓┃┃┏┓┃┃┃━┃┃━┃┏┓┃ \n┃┃━┃┃┃┃━┫┃┗┓┃┗┓┃┗┛┃ \n┗┛━┗┛┗━━┛┗━┛┗━┛┗━━┛](http://t.me/MrsFridayBot?startgroup=true)\n\n"
+Hello, This Is Me Friday !!
 
-im a group manager bot maintained by  [this man](tg://user?id={}).
+I Am Here To Manage You Groups 🤟!
 
-My Orginal code is available to you [CONTACT](https://t.me/THEWIZARD666)
+⚡My Satellite is⚡ : 🛰️Stark-2.0🛰️
 
+I am Stark Assistant But Came To Telegram To Help You Manage Your Awesome Groups!
+
+I am Made With Extra Features 🙂!
+
+So! Now I Add Me To Group Fast 😁!!!!!
+
+Click /help To See My Awesome Features!!
 """
 
 HELP_STRINGS = """
 Hey there! My name is *{}*.
-I'm a Hero For Fun and help admins manage their groups with One Punch! Have a look at the following for an idea of some of \
+I'm Legend and help admins manage their groups with Honesty! Have a look at the following for an idea of some of \
 the things I can help you with.
 
 *Main* commands available:
- - /start: start the bot
- - /help: PM's you this message.
- - /help <module name>: PM's you info about that module.
- - /donate: information about how to donate!
- - /settings:
-   - in PM: will send you your settings for all supported modules.
-   - in a group: will redirect you to pm, with all that chat's settings.
+ ➡️ /start: start the bot
+ ➡️ /help: PM's you this message.
+ ➡️ /help <module name>: PM's you info about that module.
+ ➡️ /donate: information about how to donate!
+ ➡️ /settings:
+   ✅ in PM: will send you your settings for all supported modules.
+   ✅ in a group: will redirect you to pm, with all that chat's settings.
 
 
 {}
@@ -45,10 +53,8 @@ And the following:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
 DONATE_STRING = """ Heya, glad to hear you want to donate!
-It took lots of work for [my creator](t.me/THEWIZARD666) to get me to where I am now, and every donation helps \
-motivate him to make me even better. All the donation money will go to a better VPS to host me, and/or beer \
-(see his bio!). He's just a poor student, so every little helps!
-There are two ways of paying him; [PayPal](paypal.me/THEWIZARD666) """
+Okay! lots of work for [my creator](t.me/MarioDevs) to get me to where I am now, and every Buying Helps
+motivate him to make me even better. He Don't Want Money Like That! You Can Buy A CC For Carding Or Anything At Cheap Prices😚! """
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -266,7 +272,7 @@ def send_settings(chat_id, user_id, user=False):
                                         text="Which module would you like to check {}'s settings for?".format(
                                             chat_name),
                                         reply_markup=InlineKeyboardMarkup(
-                                            paginate_modules(0, CHAT_SETTINGS, "stngs", chat=chat_id)))
+                                            paginate_modules(0, CHAT_SETTINGS, "settings", chat=chat_id)))
         else:
             dispatcher.bot.send_message(user_id, "Seems like there aren't any chat settings available :'(\nSend this "
                                                  "in a group chat you're admin in to find its current settings!",
