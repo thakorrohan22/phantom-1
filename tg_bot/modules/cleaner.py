@@ -203,7 +203,7 @@ __help__ = """
  - /listblue - list currently whitelisted commands
  
  Following are Disasters only commands, admins cannot use these:
-  - /gignoreblue <word> - globally ignore bluetext cleaning.
+  - /gignoreblue <word> - globally ignore bluetext cleaning of saved word across Saitama.
  - /ungignoreblue <word> - remove said command from global cleaning list
 """
 
